@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Países</title>
+    <style>
+        body {
+            background-color: #86b18f;
+            text-align: center;
+        }
+        #titulo {
+            color: #000000;
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            animation: fadeInOut 2s ease infinite;
+        }
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        #consultarBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #consultarBtn:hover {
+            background-color: #007bff;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Verificar Países</h1>
+    <button id="consultarBtn">Clique aqui para vê-los</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('consultarBtn').addEventListener('click', function() {
+            fetch('/paises', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = '';
+                data.forEach(pais => {
+                    const paisDiv = document.createElement('div');
+                    paisDiv.textContent = `${pais.name} - ${pais.emoji}`;
+                    resultadoDiv.appendChild(paisDiv);
+                });
+            })
+            .catch(error => console.error('Erro ao consultar a API:', error));
+        });
+    </script>
+</body>
+</html>
