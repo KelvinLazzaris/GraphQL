@@ -51,14 +51,6 @@ A API GraphQL utilizada neste projeto está disponível em `https://countries.tr
 - A página apresenta um título animado com efeito de opacidade.
 - O botão "Clique aqui para vê-los" muda de cor ao passar o mouse, proporcionando uma experiência interativa.
 
-## Screenshots
-
-### Página Inicial
-![Página Inicial](link_da_imagem_exemplo.png)
-
-### Resultado da Consulta
-![Resultado](link_da_imagem_resultado.png)
-
 ## Contribuições
 
 Contribuições são bem-vindas! Para contribuir, faça um fork deste repositório, crie uma nova branch com sua feature/correção e abra um Pull Request.
